@@ -4,7 +4,7 @@
 
 [![npm](https://img.shields.io/npm/v/react-messenger-checkbox.svg?style=flat-square)](https://www.npmjs.com/package/react-messenger-checkbox)
 [![Build Status](https://travis-ci.org/Yoctol/react-messenger-checkbox.svg?branch=master)](https://travis-ci.org/Yoctol/react-messenger-checkbox)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Screenshot
 
