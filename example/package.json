@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "example",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-messenger-checkbox": "latest",
+    "react-scripts": "1.0.17"
+  }
+}
