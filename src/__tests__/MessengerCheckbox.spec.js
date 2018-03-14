@@ -13,7 +13,12 @@ beforeEach(() => {
 describe('<MessengerCheckbox />', () => {
   it('render page_id to DOM element', () => {
     const wrapper = mount(
-      <MessengerCheckbox pageId="<PAGE_ID>" appId="<APP_ID>" />
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+      />
     );
     expect(
       wrapper
@@ -23,76 +28,90 @@ describe('<MessengerCheckbox />', () => {
     ).toBe('<PAGE_ID>');
   });
 
-  it('render no ref to DOM element', () => {
-    const wrapper = mount(
-      <MessengerCheckbox pageId="<PAGE_ID>" appId="<APP_ID>" />
-    );
-    expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('ref')
-    ).toBeUndefined();
-  });
-
-  it('render htmlRef as ref to DOM element', () => {
-    const wrapper = mount(
-      <MessengerCheckbox pageId="<PAGE_ID>" appId="<APP_ID>" htmlRef="<REF>" />
-    );
-    expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('ref')
-    ).toBe('<REF>');
-  });
-
-  it('render minimized to DOM element', () => {
-    const wrapper = mount(
-      <MessengerCheckbox pageId="<PAGE_ID>" appId="<APP_ID>" minimized />
-    );
-    expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('minimized')
-    ).toBe('true');
-  });
-
-  it('render theme_color, logged_in_greeting and logged_out_greeting to DOM element', () => {
+  it('render origin to DOM element', () => {
     const wrapper = mount(
       <MessengerCheckbox
         pageId="<PAGE_ID>"
         appId="<APP_ID>"
-        minimized
-        themeColor="#0084FF"
-        loggedInGreeting="this is a logged_in_greeting"
-        loggedOutGreeting="this is a logged_out_greeting"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+      />
+    );
+    expect(
+      wrapper
+        .render()
+        .find('.fb-messenger-checkbox')
+        .prop('origin')
+    ).toBe('<ORIGIN>');
+  });
+
+  it('render messenger_app_id to DOM element', () => {
+    const wrapper = mount(
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+      />
+    );
+    expect(
+      wrapper
+        .render()
+        .find('.fb-messenger-checkbox')
+        .prop('messenger_app_id')
+    ).toBe('<APP_ID>');
+  });
+
+  it('render user_ref to DOM element', () => {
+    const wrapper = mount(
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+      />
+    );
+    expect(
+      wrapper
+        .render()
+        .find('.fb-messenger-checkbox')
+        .prop('user_ref')
+    ).toBe('<USER_REF>');
+  });
+
+  it('render prechecked, allow_login, size, skin and center_align to DOM element', () => {
+    const wrapper = mount(
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+        prechecked={false}
+        allowLogin={false}
+        size="small"
+        skin="dark"
+        centerAlign
       />
     );
 
-    expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('theme_color')
-    ).toBe('#0084FF');
-    expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('logged_in_greeting')
-    ).toBe('this is a logged_in_greeting');
-    expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('logged_out_greeting')
-    ).toBe('this is a logged_out_greeting');
+    const checkbox = wrapper.render().find('.fb-messenger-checkbox');
+
+    expect(checkbox.prop('prechecked')).toBe('false');
+    expect(checkbox.prop('allow_login')).toBe('false');
+    expect(checkbox.prop('size')).toBe('small');
+    expect(checkbox.prop('skin')).toBe('dark');
+    expect(checkbox.prop('center_align')).toBe('true');
   });
 
   it('define fbAsyncInit and call loadSdkAsynchronously when facebook-jssdk does not exist', () => {
-    mount(<MessengerCheckbox pageId="<PAGE_ID>" appId="<APP_ID>" />);
+    mount(
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+      />
+    );
 
     expect(global.fbAsyncInit).toBeDefined();
     expect(MessengerCheckbox.prototype.loadSdkAsynchronously).toBeCalled();
@@ -103,7 +122,14 @@ describe('<MessengerCheckbox />', () => {
     div.id = 'facebook-jssdk';
     global.document.body.appendChild(div);
 
-    mount(<MessengerCheckbox pageId="<PAGE_ID>" appId="<APP_ID>" />);
+    mount(
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+      />
+    );
 
     expect(MessengerCheckbox.prototype.loadSdkAsynchronously).not.toBeCalled();
   });
@@ -117,6 +143,8 @@ describe('<MessengerCheckbox />', () => {
       <MessengerCheckbox
         pageId="<PAGE_ID>"
         appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
         autoLogAppEvents
         xfbml
         version="2.11"
