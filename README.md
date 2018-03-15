@@ -86,6 +86,12 @@ static defaultProps = {
 };
 ```
 
+## Related
+
+* [react-messenger-customer-chat](https://github.com/Yoctol/react-messenger-customer-chat) - React component for messenger customer chat plugin.
+* [messaging-api-messenger](https://github.com/Yoctol/messaging-apis/tree/master/packages/messaging-api-messenger) - Messaging APIs for Messenger.
+* [bottender](https://github.com/Yoctol/bottender) - Make Bots in Your Way, Fast and Flexibly.
+
 ## License
 
 MIT © [Yoctol](https://github.com/Yoctol/react-messenger-checkbox)
