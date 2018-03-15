@@ -8,6 +8,8 @@
 
 ## Screenshot
 
+![](https://user-images.githubusercontent.com/3382565/37448447-59db4a8a-2861-11e8-8be2-9f57d24e32f0.png)
+
 ## Prerequisite
 
 Whitelist your domain to connect your Facebook Page to your website via the
