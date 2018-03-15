@@ -15,12 +15,19 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <MessengerCheckbox
-          pageId="<PAGE_ID>"
-          appId="<APP_ID>"
-          origin="<ORIGIN>"
-          userRef="<USER_REF>"
-        />
+        <div>
+          <MessengerCheckbox
+            pageId="<PAGE_ID>"
+            appId="<APP_ID>"
+            origin="<ORIGIN>"
+            userRef="<USER_REF>"
+          />,
+          <input
+            type="button"
+            onClick={global.confirmOptIn}
+            value="Confirm Opt-in"
+          />
+        </div>
       </div>
     );
   }

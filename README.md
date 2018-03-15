@@ -33,12 +33,15 @@ import ReactDOM from 'react-dom';
 import MessengerCheckbox from 'react-messenger-checkbox';
 
 ReactDOM.render(
-  <MessengerCheckbox
-    pageId="<PAGE_ID>"
-    appId="<APP_ID>"
-    origin="<ORIGIN>"
-    userRef="<USER_REF>"
-  />,
+  <div>
+    <MessengerCheckbox
+      pageId="<PAGE_ID>"
+      appId="<APP_ID>"
+      origin="<ORIGIN>"
+      userRef="<USER_REF>"
+    />,
+    <input type="button" onClick={global.confirmOptIn} value="Confirm Opt-in" />
+  </div>
   document.getElementById('demo')
 );
 ```
