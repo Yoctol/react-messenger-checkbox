@@ -44,7 +44,15 @@ export default class MessengerCheckbox extends Component {
   }
 
   setFbAsyncInit() {
-    const { appId, autoLogAppEvents, xfbml, version, onEvent } = this.props;
+    const {
+      appId,
+      pageId,
+      autoLogAppEvents,
+      xfbml,
+      version,
+      onEvent,
+      userRef,
+    } = this.props;
     window.fbAsyncInit = () => {
       window.FB.init({
         appId,
@@ -54,6 +62,19 @@ export default class MessengerCheckbox extends Component {
       });
 
       window.FB.Event.subscribe('messenger_checkbox', onEvent);
+
+      window.confirmOptIn = function confirmOptIn(ref) {
+        window.FB.AppEvents.logEvent(
+          'MessengerCheckboxUserConfirmation',
+          null,
+          {
+            app_id: appId,
+            page_id: pageId,
+            ref,
+            user_ref: userRef,
+          }
+        );
+      };
     };
   }
 
