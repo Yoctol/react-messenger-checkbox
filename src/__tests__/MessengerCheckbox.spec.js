@@ -170,6 +170,9 @@ describe('<MessengerCheckbox />', () => {
       Event: {
         subscribe: jest.fn(),
       },
+      AppEvents: {
+        logEvent: jest.fn(),
+      },
     };
 
     const onEvent = () => {};
@@ -192,6 +195,48 @@ describe('<MessengerCheckbox />', () => {
     expect(global.FB.Event.subscribe).toBeCalledWith(
       'messenger_checkbox',
       expect.any(Function)
+    );
+  });
+
+  it('attach #confirmOptIn function to global', () => {
+    global.FB = {
+      init: jest.fn(),
+      Event: {
+        subscribe: jest.fn(),
+      },
+      AppEvents: {
+        logEvent: jest.fn(),
+      },
+    };
+
+    mount(
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+        autoLogAppEvents
+        xfbml
+        version="2.11"
+      />
+    );
+
+    global.fbAsyncInit();
+
+    expect(global.confirmOptIn).toBeDefined();
+    expect(typeof global.confirmOptIn).toBe('function');
+
+    global.confirmOptIn('<REF>');
+
+    expect(global.FB.AppEvents.logEvent).toBeCalledWith(
+      'MessengerCheckboxUserConfirmation',
+      null,
+      {
+        app_id: '<APP_ID>',
+        page_id: '<PAGE_ID>',
+        ref: '<REF>',
+        user_ref: '<USER_REF>',
+      }
     );
   });
 });
