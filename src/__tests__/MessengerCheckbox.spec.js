@@ -137,6 +137,9 @@ describe('<MessengerCheckbox />', () => {
   it('define fbAsyncInit and call loadSdkAsynchronously when facebook-jssdk does not exist', () => {
     global.FB = {
       init: jest.fn(),
+      Event: {
+        subscribe: jest.fn(),
+      },
     };
 
     mount(
@@ -159,5 +162,36 @@ describe('<MessengerCheckbox />', () => {
       xfbml: true,
       version: 'v2.11',
     });
+  });
+
+  it('subscribe messenger_checkbox event with onEvent handler', () => {
+    global.FB = {
+      init: jest.fn(),
+      Event: {
+        subscribe: jest.fn(),
+      },
+    };
+
+    const onEvent = () => {};
+
+    mount(
+      <MessengerCheckbox
+        pageId="<PAGE_ID>"
+        appId="<APP_ID>"
+        origin="<ORIGIN>"
+        userRef="<USER_REF>"
+        autoLogAppEvents
+        xfbml
+        version="2.11"
+        onEvent={onEvent}
+      />
+    );
+
+    global.fbAsyncInit();
+
+    expect(global.FB.Event.subscribe).toBeCalledWith(
+      'messenger_checkbox',
+      expect.any(Function)
+    );
   });
 });
