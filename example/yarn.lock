@@ -5560,8 +5560,8 @@ react-error-overlay@^3.0.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
 react-messenger-checkbox@latest:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/react-messenger-checkbox/-/react-messenger-checkbox-0.0.3.tgz#62c76b673725813b8b9917712956ebc976a6f6a5"
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-messenger-checkbox/-/react-messenger-checkbox-0.0.4.tgz#213f558272f47e5cff0a36a346881225dde8dc55"
   dependencies:
     prop-types "^15.6.0"
 
