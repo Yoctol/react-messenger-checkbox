@@ -65,6 +65,7 @@ static propTypes = {
   version: PropTypes.string,
   language: PropTypes.string,
   debug: PropTypes.bool,
+  onEvent: PropTypes.func,
 };
 
 static defaultProps = {
@@ -78,6 +79,7 @@ static defaultProps = {
   version: '2.11',
   language: 'en_US',
   debug: false,
+  onEvent: () => {},
 };
 ```
 

@@ -18,6 +18,7 @@ export default class MessengerCheckbox extends Component {
     version: PropTypes.string,
     language: PropTypes.string,
     debug: PropTypes.bool,
+    onEvent: PropTypes.func,
   };
 
   static defaultProps = {
@@ -31,6 +32,7 @@ export default class MessengerCheckbox extends Component {
     version: '2.11',
     language: 'en_US',
     debug: false,
+    onEvent: () => {},
   };
 
   componentDidMount() {
@@ -42,7 +44,7 @@ export default class MessengerCheckbox extends Component {
   }
 
   setFbAsyncInit() {
-    const { appId, autoLogAppEvents, xfbml, version } = this.props;
+    const { appId, autoLogAppEvents, xfbml, version, onEvent } = this.props;
     window.fbAsyncInit = () => {
       window.FB.init({
         appId,
@@ -50,6 +52,8 @@ export default class MessengerCheckbox extends Component {
         xfbml,
         version: `v${version}`,
       });
+
+      window.FB.Event.subscribe('messenger_checkbox', onEvent);
     };
   }
 
