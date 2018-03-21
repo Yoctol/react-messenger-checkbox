@@ -1,6 +1,6 @@
 # React Messenger Checkbox
 
-> React component for messenger checkbox plugin
+> React component for [Messenger checkbox plugin](https://developers.facebook.com/docs/messenger-platform/discovery/checkbox-plugin)
 
 [![npm](https://img.shields.io/npm/v/react-messenger-checkbox.svg?style=flat-square)](https://www.npmjs.com/package/react-messenger-checkbox)
 [![Build Status](https://travis-ci.org/Yoctol/react-messenger-checkbox.svg?branch=master)](https://travis-ci.org/Yoctol/react-messenger-checkbox)
