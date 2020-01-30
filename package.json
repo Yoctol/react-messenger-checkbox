@@ -3,7 +3,7 @@
   "description": "React component for messenger checkbox plugin",
   "license": "MIT",
   "version": "0.1.0",
-  "main": "lib/index.js",
+  "main": "lib/MessengerCheckbox.js",
   "files": [
     "lib"
   ],
