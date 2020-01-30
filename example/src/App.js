@@ -21,7 +21,8 @@ class App extends Component {
             appId="<APP_ID>"
             origin="<ORIGIN>"
             userRef="<USER_REF>"
-          />,
+          />
+          ,
           <input
             type="button"
             onClick={global.confirmOptIn}
