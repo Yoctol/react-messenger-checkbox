@@ -1,40 +1,7 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 export default class MessengerCheckbox extends Component {
-  static propTypes = {
-    pageId: PropTypes.string.isRequired,
-    appId: PropTypes.string.isRequired,
-    origin: PropTypes.string.isRequired,
-    userRef: PropTypes.string.isRequired,
-
-    prechecked: PropTypes.bool,
-    allowLogin: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large', 'standard', 'xlarge']),
-    skin: PropTypes.oneOf(['light', 'dark']),
-    centerAlign: PropTypes.bool,
-    autoLogAppEvents: PropTypes.bool,
-    xfbml: PropTypes.bool,
-    version: PropTypes.string,
-    language: PropTypes.string,
-    debug: PropTypes.bool,
-    onEvent: PropTypes.func,
-  };
-
-  static defaultProps = {
-    prechecked: true,
-    allowLogin: true,
-    size: 'large',
-    skin: 'light',
-    centerAlign: false,
-    autoLogAppEvents: true,
-    xfbml: true,
-    version: '2.11',
-    language: 'en_US',
-    debug: false,
-    onEvent: () => {},
-  };
-
   componentDidMount() {
     if (document.getElementById('facebook-jssdk')) {
       return;
@@ -129,3 +96,36 @@ export default class MessengerCheckbox extends Component {
     return <div dangerouslySetInnerHTML={this.createMarkup()} />;
   }
 }
+
+MessengerCheckbox.propTypes = {
+  pageId: PropTypes.string.isRequired,
+  appId: PropTypes.string.isRequired,
+  origin: PropTypes.string.isRequired,
+  userRef: PropTypes.string.isRequired,
+
+  prechecked: PropTypes.bool,
+  allowLogin: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'standard', 'xlarge']),
+  skin: PropTypes.oneOf(['light', 'dark']),
+  centerAlign: PropTypes.bool,
+  autoLogAppEvents: PropTypes.bool,
+  xfbml: PropTypes.bool,
+  version: PropTypes.string,
+  language: PropTypes.string,
+  debug: PropTypes.bool,
+  onEvent: PropTypes.func,
+};
+
+MessengerCheckbox.defaultProps = {
+  prechecked: true,
+  allowLogin: true,
+  size: 'large',
+  skin: 'light',
+  centerAlign: false,
+  autoLogAppEvents: true,
+  xfbml: true,
+  version: '2.11',
+  language: 'en_US',
+  debug: false,
+  onEvent: () => {},
+};

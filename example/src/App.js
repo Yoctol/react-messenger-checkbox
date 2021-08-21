@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import MessengerCheckbox from 'react-messenger-checkbox';
+import React, { Component } from 'react';
 
 import logo from './logo.svg';
 import './App.css';

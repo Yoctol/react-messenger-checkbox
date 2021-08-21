@@ -1,6 +1,6 @@
-import React from 'react';
-import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import Enzyme, { mount } from 'enzyme';
+import React from 'react';
 
 import MessengerCheckbox from '../MessengerCheckbox';
 
@@ -21,10 +21,7 @@ describe('<MessengerCheckbox />', () => {
       />
     );
     expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('page_id')
+      wrapper.render().find('.fb-messenger-checkbox').prop('page_id')
     ).toBe('<PAGE_ID>');
   });
 
@@ -37,12 +34,9 @@ describe('<MessengerCheckbox />', () => {
         userRef="<USER_REF>"
       />
     );
-    expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('origin')
-    ).toBe('<ORIGIN>');
+    expect(wrapper.render().find('.fb-messenger-checkbox').prop('origin')).toBe(
+      '<ORIGIN>'
+    );
   });
 
   it('render messenger_app_id to DOM element', () => {
@@ -55,10 +49,7 @@ describe('<MessengerCheckbox />', () => {
       />
     );
     expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('messenger_app_id')
+      wrapper.render().find('.fb-messenger-checkbox').prop('messenger_app_id')
     ).toBe('<APP_ID>');
   });
 
@@ -72,10 +63,7 @@ describe('<MessengerCheckbox />', () => {
       />
     );
     expect(
-      wrapper
-        .render()
-        .find('.fb-messenger-checkbox')
-        .prop('user_ref')
+      wrapper.render().find('.fb-messenger-checkbox').prop('user_ref')
     ).toBe('<USER_REF>');
   });
 
