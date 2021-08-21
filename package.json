@@ -70,15 +70,5 @@
       "/node_modules/",
       "/example/"
     ]
-  },
-  "lint-staged": {
-    "package.json": [
-      "prettier-package-json --write",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
   }
 }
